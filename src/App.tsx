@@ -7,6 +7,7 @@ import data from './assets/data';
 import messages from './assets/messages';
 import { wHeight } from './assets/utils';
 import Message from './Message';
+import MomoHeader from './MomoHeader';
 import VideoItem from './VideoItem';
 
 const BottomTab = createBottomTabNavigator();
@@ -63,7 +64,7 @@ const App = (): JSX.Element => {
                 />
                 <BottomTab.Screen
                     name={'Discover'}
-                    component={Home}
+                    component={MomoHeader}
                     options={{
                         tabBarIcon: ({ focused }) => (
                             <Image
