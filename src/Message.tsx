@@ -19,7 +19,7 @@ const getUniqueId = () => {
 const Message: React.FC<MessageComponentProps> = ({ data }) => {
     const { time, text } = data;
 
-    const [messageHeight, setMessageHeight] = useState<number>(0);
+    const [messageHeight, setMessageHeight] = useState<number>(50);
     const [isHearted, setIsHearted] = useState<boolean>(false);
     const [heartCount, setHeartCount] = useState<number>(0);
     const [flyHearts, setFlyHearts] = useState<{ id: string }[]>([]);

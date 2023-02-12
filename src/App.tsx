@@ -6,6 +6,7 @@ import { FlatList, Image, StyleSheet, View } from 'react-native';
 import data from './assets/data';
 import messages from './assets/messages';
 import { wHeight } from './assets/utils';
+import BottomSheet from './BottomSheet';
 import Message from './Message';
 import MomoHeader from './MomoHeader';
 import VideoItem from './VideoItem';
@@ -63,7 +64,7 @@ const App = (): JSX.Element => {
                     }}
                 />
                 <BottomTab.Screen
-                    name={'Discover'}
+                    name={'MomoHeader'}
                     component={MomoHeader}
                     options={{
                         tabBarIcon: ({ focused }) => (
@@ -100,8 +101,8 @@ const App = (): JSX.Element => {
                     }}
                 />
                 <BottomTab.Screen
-                    name={'Profile'}
-                    component={Home}
+                    name={'BottomSheet'}
+                    component={BottomSheet}
                     options={{
                         tabBarIcon: ({ focused }) => (
                             <Image
@@ -133,52 +134,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    viewMessageContainer: {
-        width: '85%',
-        flexDirection: 'row',
-        marginVertical: 20,
-    },
-    imgAvatar: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        marginRight: 10,
-        backgroundColor: 'white',
-        shadowColor: 'black',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 5,
-    },
-    viewMessage: {
-        flex: 1,
-        width: '100%',
-        backgroundColor: 'white',
-        padding: 15,
-        borderRadius: 10,
-        shadowColor: 'black',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 5,
-    },
-    txtMessage: {
-        fontSize: 16,
-        color: '#111111',
-    },
-    txtTime: {
-        marginTop: 10,
-        fontSize: 12,
-        color: '#333333',
     },
 });
 
