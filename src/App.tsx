@@ -10,6 +10,7 @@ import BottomSheet from './BottomSheet';
 import Message from './Message';
 import MomoHeader from './MomoHeader';
 import VideoItem from './VideoItem';
+import DynamicIsland from './DynamicIsland';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -52,8 +53,8 @@ const App = (): JSX.Element => {
                 }}
             >
                 <BottomTab.Screen
-                    name={'Home'}
-                    component={Home}
+                    name={'DynamicIsland'}
+                    component={DynamicIsland}
                     options={{
                         tabBarIcon: ({ focused }) => (
                             <Image
