@@ -1,11 +1,37 @@
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button, StatusBar, StyleSheet, View, NativeMethods, NativeModules } from 'react-native';
+import { Alert, Button, Linking, NativeModules, StatusBar, StyleSheet, View } from 'react-native';
+import { RootStackParamList } from './App';
 
-type Props = {};
+type Props = BottomTabScreenProps<RootStackParamList>;
+type ScreenNavigationProp = Props['navigation'];
 
 const { DynamicIslandModule } = NativeModules;
 
 const DynamicIsland = (props: Props) => {
+    const navigation = useNavigation<ScreenNavigationProp>();
+
+    const handleDeepLink = (url: any) => {
+        const route = url.replace('dynamic-island://', '');
+        if (route === 'MomoHeader') {
+            DynamicIslandModule.endNotificationActivity();
+        }
+        navigation.navigate(route);
+    };
+    React.useEffect(() => {
+        Linking.getInitialURL().then((url) => {
+            if (url) {
+                handleDeepLink(url);
+            }
+        });
+
+        Linking.addEventListener('url', ({ url }) => {
+            if (url) {
+                handleDeepLink(url);
+            }
+        });
+    }, []);
     const onPress = () => {
         DynamicIslandModule.testFunc('Nak', 'dep trai').then((resolve: string) => {
             console.log('Resolve:::', resolve);

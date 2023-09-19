@@ -1,18 +1,25 @@
 import { createBottomTabNavigator, useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { FlatList, Image, StyleSheet, View } from 'react-native';
+import { FlatList, Image, StyleSheet } from 'react-native';
 
-import data from './assets/data';
-import messages from './assets/messages';
-import { wHeight } from './assets/utils';
 import BottomSheet from './BottomSheet';
-import Message from './Message';
+import DynamicIsland from './DynamicIsland';
+import Inbox from './Inbox';
 import MomoHeader from './MomoHeader';
 import VideoItem from './VideoItem';
-import DynamicIsland from './DynamicIsland';
+import data from './assets/data';
+import { wHeight } from './assets/utils';
 
-const BottomTab = createBottomTabNavigator();
+export type RootStackParamList = {
+    DynamicIsland: undefined;
+    MomoHeader: undefined;
+    NewVideo: undefined;
+    Inbox: undefined;
+    BottomSheet: undefined;
+};
+
+const BottomTab = createBottomTabNavigator<RootStackParamList>();
 
 const Home = (): JSX.Element => {
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
@@ -27,16 +34,6 @@ const Home = (): JSX.Element => {
                 setActiveVideoIndex(index);
             }}
         />
-    );
-};
-
-const Inbox = () => {
-    return (
-        <View style={styles.viewInboxContainer}>
-            {messages.map((message, index) => (
-                <Message key={index} data={message} />
-            ))}
-        </View>
     );
 };
 
@@ -130,11 +127,6 @@ const styles = StyleSheet.create({
     newVideoButton: {
         width: 48,
         height: 24,
-    },
-    viewInboxContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 });
 

@@ -2,7 +2,7 @@
 //  NotificationWidget.swift
 //  NotificationWidget
 //
-//  Created by Nhật Trần on 16/02/2023.
+//  Created by Nhật Trần on 19/09/2023.
 //
 
 import WidgetKit
@@ -53,7 +53,7 @@ struct ContentCloseView: View {
 struct ActionButtonView: View {
   var body: some View{
     HStack() {
-      Button(action: {}) {
+      Link(destination: URL(string: "dynamic-island://Inbox")!, label: {
         HStack{
           Image(systemName: "play.circle").foregroundColor(.white)
           Text("Accept")
@@ -64,9 +64,9 @@ struct ActionButtonView: View {
         .background(.green)
         .clipShape(Capsule())
         .foregroundColor(.white)
-      }
+      })
       
-      Button(action: {}) {
+      Link(destination: URL(string: "dynamic-island://MomoHeader")!, label: {
         HStack{
           Image(systemName: "stop.circle").foregroundColor(.white)
           Text("Reject")
@@ -77,7 +77,7 @@ struct ActionButtonView: View {
         .background(.red)
         .clipShape(Capsule())
         .foregroundColor(.white)
-      }
+      })
     }
   }
 }

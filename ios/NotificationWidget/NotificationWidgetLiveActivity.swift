@@ -2,7 +2,7 @@
 //  NotificationWidgetLiveActivity.swift
 //  NotificationWidget
 //
-//  Created by Nhật Trần on 16/02/2023.
+//  Created by Nhật Trần on 19/09/2023.
 //
 
 import ActivityKit
